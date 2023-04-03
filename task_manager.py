@@ -2,7 +2,7 @@
 import datetime
 
 # Boolean to check if logged in
-logged_in = False
+login = False
 
 # Request user input
 username = input("Please enter your username: ")
@@ -12,15 +12,15 @@ password = input("Please enter your password: ")
 # Check if user input matches the user text file, if yes then change boolean to True
 # Use seek function to start the loop lines search back at 0 so login works after unsuccessful login
 with open("user.txt", "r") as f:
-    while logged_in == False:
+    while login == False:
         for line in f:
             data = line.split(",")
             user = data[0].strip()
             pas = data[1].strip()
             if username == user and password == pas:
                 print("Login successful")
-                logged_in = True
-        if logged_in == False:
+                login = True
+        if login == False:
             print("Login unsuccessful")
             username = input("Please enter your username: ")
             password = input("Please enter your password: ")
